@@ -14,11 +14,12 @@ function App() {
             <Header />
             <Container>
                 <Routes>
-                    {isLogged ? (
-                        <Route path="/" element={<Home />} />
+                    {isLogged !== true ? (
+                        <Route path="/testProject" element={<Login />} />
                     ) : (
-                        <Route path="/login" element={<Login />} />
+                        <Route path="/testProject/home" element={<Home />} />
                     )}
+                    <Route path="*" element={<Login />} />
                 </Routes>
             </Container>
         </div>

@@ -33,7 +33,7 @@ function Login() {
                 })
             );
             // после того как пользователь вошел, перенаправляю его в страницу "home"
-            navigate("/");
+            navigate("/testProject/home");
         }
     };
 

@@ -35,19 +35,19 @@ function Header() {
             })
         );
         // переход на страницу Логин
-        navigate("/login");
+        navigate("/testProject/");
     };
 
     return (
         <header>
             <StyledHeaderContainer>
                 <Logo>
-                    <Link to={isLogged ? "/" : "/login"}>
+                    <Link to={isLogged ? "/testProject/home" : "/testProject/"}>
                         <img src={logo} alt="" />
                     </Link>
                 </Logo>
                 <MobileLogo>
-                    <Link to={isLogged ? "/" : "/login"}>
+                    <Link to={isLogged ? "/testProject/home" : "/testProject/"}>
                         <img src={mobileLogo} alt="" />
                     </Link>
                 </MobileLogo>
