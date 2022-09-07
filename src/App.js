@@ -1,25 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import { useSelector } from "react-redux";
+import { Route, Routes } from "react-router-dom";
+import Header from "./components/header/Header";
+import Home from "./pages/Home";
+import Login from "./pages/Login";
+import Container from "./components/styleComponents/Container";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    // Получаю isLogged с redux чтобы проверить, вошел ли пользователь или нет.
+    const isLogged = useSelector((state) => state.user.isLogged);
+
+    return (
+        <div className="App">
+            <Header />
+            <Container>
+                <Routes>
+                    {isLogged ? (
+                        <Route path="/" element={<Home />} />
+                    ) : (
+                        <Route path="/login" element={<Login />} />
+                    )}
+                </Routes>
+            </Container>
+        </div>
+    );
 }
 
 export default App;
